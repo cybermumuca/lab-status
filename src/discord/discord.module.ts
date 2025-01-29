@@ -3,10 +3,10 @@ import { Module } from '@nestjs/common';
 import { IntentsBitField } from 'discord.js';
 import { NecordModule } from 'necord';
 import { DiscordUpdate } from './discord.update';
-import { DiscordService } from './discord.service';
 import { EnvModule } from 'src/env/env.module';
 import { EnvService } from 'src/env/env.service';
 import { PortainerModule } from 'src/portainer/portainer.module';
+import { StatusCommand } from './commands/status.command';
 
 @Module({
   imports: [
@@ -21,6 +21,6 @@ import { PortainerModule } from 'src/portainer/portainer.module';
       inject: [EnvService],
     }),
   ],
-  providers: [DiscordUpdate, DiscordService],
+  providers: [DiscordUpdate, StatusCommand],
 })
 export class DiscordModule {}
